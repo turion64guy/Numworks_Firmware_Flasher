@@ -20,6 +20,10 @@ private slots:
 
     void on_action_About_triggered();
 
+    void on_Flash_pushButton_clicked();
+
+    void on_Get_Calc_State_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

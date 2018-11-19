@@ -3,12 +3,20 @@
 #include <QDate>
 #include <QProcess>
 #include <QMessageBox>
+#include <QPixmap>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    #ifdef _WIN32
+    //For Windows
+    #else
+    QPixmap pix("/home/bensuperpc/Git/Numworks_Firmware_Flasher/Numworks_Firmware_Flasher/Resources/Images/numwork_base.png");
+    ui->Picture_Label->setPixmap(pix.scaled(100,100,Qt::KeepAspectRatio));
+
+    #endif
     //connect(ui->, SIGNAL(clicked()), this, SLOT(openDestinationFolder()));
 }
 
@@ -38,4 +46,15 @@ void MainWindow::on_action_About_triggered()
 
    msgBox.setInformativeText(Message);
    msgBox.exec();
+}
+
+void MainWindow::on_Flash_pushButton_clicked()
+{
+
+}
+
+void MainWindow::on_Get_Calc_State_pushButton_clicked()
+{
+    QPixmap pix2("/home/bensuperpc/Git/Numworks_Firmware_Flasher/Numworks_Firmware_Flasher/Resources/Images/numwork_dfu.png");
+    ui->Picture_Label->setPixmap(pix2.scaled(100,100,Qt::KeepAspectRatio));
 }

@@ -14,7 +14,7 @@ CC            = gcc
 CXX           = g++
 DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-CXXFLAGS      = -pipe -g -std=gnu++11 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
+CXXFLAGS      = -pipe -g -std=gnu++1y -Wall -W -D_REENTRANT -fPIC $(DEFINES)
 INCPATH       = -I../Numworks_Firmware_Flasher -I. -I/opt/Qt5.11.2/5.11.2/gcc_64/include -I/opt/Qt5.11.2/5.11.2/gcc_64/include/QtWidgets -I/opt/Qt5.11.2/5.11.2/gcc_64/include/QtGui -I/opt/Qt5.11.2/5.11.2/gcc_64/include/QtCore -I. -isystem /usr/include/libdrm -I. -I/opt/Qt5.11.2/5.11.2/gcc_64/mkspecs/linux-g++
 QMAKE         = /opt/Qt5.11.2/5.11.2/gcc_64/bin/qmake
 DEL_FILE      = rm -f
@@ -205,6 +205,7 @@ DIST          = /opt/Qt5.11.2/5.11.2/gcc_64/mkspecs/features/spec_pre.prf \
 		/opt/Qt5.11.2/5.11.2/gcc_64/mkspecs/features/qt_config.prf \
 		/opt/Qt5.11.2/5.11.2/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/opt/Qt5.11.2/5.11.2/gcc_64/mkspecs/features/spec_post.prf \
+		../Numworks_Firmware_Flasher/.qmake.stash \
 		/opt/Qt5.11.2/5.11.2/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/opt/Qt5.11.2/5.11.2/gcc_64/mkspecs/features/toolchain.prf \
 		/opt/Qt5.11.2/5.11.2/gcc_64/mkspecs/features/default_pre.prf \
@@ -387,6 +388,7 @@ Makefile: ../Numworks_Firmware_Flasher/Numworks_Firmware_Flasher.pro /opt/Qt5.11
 		/opt/Qt5.11.2/5.11.2/gcc_64/mkspecs/features/qt_config.prf \
 		/opt/Qt5.11.2/5.11.2/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/opt/Qt5.11.2/5.11.2/gcc_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/opt/Qt5.11.2/5.11.2/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/opt/Qt5.11.2/5.11.2/gcc_64/mkspecs/features/toolchain.prf \
 		/opt/Qt5.11.2/5.11.2/gcc_64/mkspecs/features/default_pre.prf \
@@ -561,6 +563,7 @@ Makefile: ../Numworks_Firmware_Flasher/Numworks_Firmware_Flasher.pro /opt/Qt5.11
 /opt/Qt5.11.2/5.11.2/gcc_64/mkspecs/features/qt_config.prf:
 /opt/Qt5.11.2/5.11.2/gcc_64/mkspecs/linux-g++/qmake.conf:
 /opt/Qt5.11.2/5.11.2/gcc_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /opt/Qt5.11.2/5.11.2/gcc_64/mkspecs/features/exclusive_builds.prf:
 /opt/Qt5.11.2/5.11.2/gcc_64/mkspecs/features/toolchain.prf:
 /opt/Qt5.11.2/5.11.2/gcc_64/mkspecs/features/default_pre.prf:
@@ -631,7 +634,7 @@ compiler_moc_predefs_make_all: moc_predefs.h
 compiler_moc_predefs_clean:
 	-$(DEL_FILE) moc_predefs.h
 moc_predefs.h: /opt/Qt5.11.2/5.11.2/gcc_64/mkspecs/features/data/dummy.cpp
-	g++ -pipe -g -std=gnu++11 -Wall -W -dM -E -o moc_predefs.h /opt/Qt5.11.2/5.11.2/gcc_64/mkspecs/features/data/dummy.cpp
+	g++ -pipe -g -std=gnu++1y -Wall -W -dM -E -o moc_predefs.h /opt/Qt5.11.2/5.11.2/gcc_64/mkspecs/features/data/dummy.cpp
 
 compiler_moc_header_make_all: moc_mainwindow.cpp
 compiler_moc_header_clean:
@@ -991,7 +994,59 @@ mainwindow.o: ../Numworks_Firmware_Flasher/mainwindow.cpp ../Numworks_Firmware_F
 		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtGui/qtouchdevice.h \
 		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtWidgets/qtabwidget.h \
 		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtGui/qicon.h \
-		ui_mainwindow.h
+		ui_mainwindow.h \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtCore/QVariant \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtWidgets/QAction \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtWidgets/qaction.h \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtWidgets/qactiongroup.h \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtWidgets/QCheckBox \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtWidgets/qcheckbox.h \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtWidgets/QMenu \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtWidgets/qmenu.h \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtWidgets/QMenuBar \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtWidgets/qmenubar.h \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtWidgets/QPlainTextEdit \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtWidgets/qplaintextedit.h \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtGui/qtextdocument.h \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtGui/qtextcursor.h \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtGui/qtextformat.h \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtGui/qpen.h \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtGui/qabstracttextdocumentlayout.h \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtGui/qtextlayout.h \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtGui/qglyphrun.h \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtGui/qrawfont.h \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtGui/qfontdatabase.h \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtWidgets/QProgressBar \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtWidgets/qprogressbar.h \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtWidgets/QStatusBar \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtWidgets/qstatusbar.h \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtWidgets/QToolBar \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtWidgets/qtoolbar.h \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtWidgets/QWidget \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtCore/QDate \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtCore/qdatetime.h \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtCore/QProcess \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtCore/qprocess.h \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtWidgets/QMessageBox \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtWidgets/qmessagebox.h \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtWidgets/qdialog.h \
+		/opt/Qt5.11.2/5.11.2/gcc_64/include/QtGui/QPixmap
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../Numworks_Firmware_Flasher/mainwindow.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
